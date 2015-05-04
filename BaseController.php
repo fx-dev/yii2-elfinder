@@ -55,8 +55,17 @@ class BaseController extends Controller{
 	}
 
 	public function getManagerOptions(){
+	    
+        //SERGI
+        if(isset($_GET['folder'])){
+            $url = Url::toRoute(['connect','folder'=>$_GET['folder']]);
+        } else {
+            $url = Url::toRoute('connect');
+        }
+        //SERGI
+        
 		$options = [
-			'url'=> Url::toRoute('connect'),
+			'url'=> $url,
 			'customData' => [
 				Yii::$app->request->csrfParam => Yii::$app->request->csrfToken
 			],
