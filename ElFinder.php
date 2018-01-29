@@ -30,9 +30,11 @@ class ElFinder extends BaseWidjet{
 	public $path;// work with PathController
 	public $startPath;
 
-	public $containerOptions = [];
-	public $frameOptions = [];
-	public $controller = 'elfinder';
+    public $containerOptions = [];
+    public $frameOptions = [];
+    public $controller = 'elfinder';
+    public $folder; //SERGI
+    public $ui; //SERGI
 
 	public static function genPathHash($path)
 	{
@@ -96,6 +98,12 @@ class ElFinder extends BaseWidjet{
 
 		if(!empty($this->language))
 			$managerOptions['lang'] = $this->language;
+
+        if(!empty($this->folder)) //SERGI
+            $managerOptions['folder'] = $this->folder; //SERGI
+
+        if(!empty($this->ui)) //SERGI
+            $managerOptions['ui'] = $this->ui; //SERGI
 
 		if(!empty($this->path))
 			$managerOptions['path'] = $this->path;
