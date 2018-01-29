@@ -43,6 +43,16 @@ class Controller extends BaseController{
         }
 		//SERGI
 
+		//SERGI
+        if(isset($_GET['folder'])){
+            $this->roots[] = [
+                'baseUrl'=>'@web',
+                'basePath'=>'@webroot',
+                'path' => $_GET['folder']
+            ];
+        }
+		//SERGI
+
         foreach($this->roots as $root){
             if(is_string($root))
                 $root = ['path' => $root];
